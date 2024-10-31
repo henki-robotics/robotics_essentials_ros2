@@ -1,9 +1,9 @@
 services:
-  robotics_essentials:
-    image: robotics_essentials
+  robotics_essentials_ros2:
+    image: robotics_essentials_ros2
     build:
       context: .
-    container_name: robotics_essentials
+    container_name: robotics_essentials_ros2
     stop_signal: SIGINT
     network_mode: host
     privileged: true
