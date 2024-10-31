@@ -1,0 +1,19 @@
+services:
+  robotics_essentials:
+    image: robotics_essentials
+    build:
+      context: .
+    container_name: robotics_essentials
+    stop_signal: SIGINT
+    network_mode: host
+    privileged: true
+    stdin_open: true
+    tty: true
+    user: user
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    environment:
+      - DISPLAY
+      - QT_X11_NO_MITSHM=1
+      - ROS_DOMAIN_ID=42
+    command: bash
