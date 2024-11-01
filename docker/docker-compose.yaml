@@ -11,6 +11,7 @@ services:
     tty: true
     user: user
     volumes:
+      - $HOME/exercises_ws/src:/home/user/exercises_ws/src
       - /tmp/.X11-unix:/tmp/.X11-unix
     environment:
       - DISPLAY

@@ -10,9 +10,11 @@ RUN usermod -aG sudo ${UNAME}
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 USER ${UNAME}
 
-# Create a custom workspace
+# Create a custom ros2 overlay workspace and workspace for exercises
 ENV ROS2_WS=/home/user/ros2_ws
 RUN mkdir -p ${ROS2_WS}/src
+ENV EXERCISES_WS=/home/user/exercises_ws
+RUN mkdir -p $EXERCISES_WS/src
 
 # Disable terminal interaction for apt
 ENV DEBIAN_FRONTEND=noninteractive
@@ -35,6 +37,7 @@ RUN sudo apt-get install ignition-fortress -y
 RUN sudo apt-get update && \
     sudo apt-get install -y --no-install-recommends \
     ros-$ROS_DISTRO-navigation2 \
+    ros-$ROS_DISTRO-turtle-nest \
     && sudo apt-get clean && \
     sudo rm -rf /var/lib/apt/lists/*
 
@@ -49,11 +52,11 @@ RUN cd ${ROS2_WS}/src && \
     sudo rm -rf /var/lib/apt/lists/* && \
     colcon build --symlink-install
 
-WORKDIR ${ROS2_WS}
-
 # Source ROS workspace automatically when new terminal is opened
 RUN sudo echo ". /opt/ros/${ROS_DISTRO}/setup.bash" >> ~/.bashrc && \
     sudo echo ". ${ROS2_WS}/install/setup.bash" >> ~/.bashrc
+
+WORKDIR /home/user/exercises_ws
 
 # Source ROS in the main terminal
 COPY ./ros_entrypoint.sh /ros_entrypoint.sh

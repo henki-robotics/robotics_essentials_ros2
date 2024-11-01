@@ -15,7 +15,12 @@ ROS 2 or Gazebo simulation installations are required!
 git clone https://github.com/henki-robotics/robotics_essentials_ros2.git
 ```
 
-2. Use docker compose to build and run the Docker container, which includes the ROS 2, Gazebo and simulated Andino installation.
+2. Create a new workspace for your exercises. This will be automatically mounted and available from the Docker container
+```commandline
+mkdir -p $HOME/exercises_ws/src
+```
+
+3. Use docker compose to build and run the Docker container, which includes the ROS 2, Gazebo and simulated Andino installation.
 ```commandline
 cd robotics_essentials_ros2/docker/
 docker compose up 
@@ -25,17 +30,18 @@ Wait until the container has been successfully launched
 <img src="/images/docker_compose_up.png" alt="Andino Simulation Screenshot">
 
 
-3. Open a new terminal and start an interactive terminal access inside the Docker container
+4. Open a new terminal and start interactive Docker terminal access
 ```commandline
 docker exec -it robotics_essentials_ros2 bash
 ```
 
-4. Verify that everything is running correctly, by starting the simulation with
+5. Verify that everything is running correctly, by starting the simulation with
 ```commandline
 ros2 launch andino_gz andino_gz.launch.py
 ```
 
 **Note:** Gazebo might take a long while to start and open up.
 
+6. Press the play button in simulation to start it
 
 <img src="/images/andino_sim_screenshot.png" alt="Andino Simulation Screenshot">
