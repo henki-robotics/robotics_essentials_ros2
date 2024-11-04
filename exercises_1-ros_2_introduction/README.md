@@ -128,8 +128,9 @@ Publish a message to rotate the robot in its place. First, check what is the mes
 - `ros2 interface show geometry_msgs/msg/Twist` shows us that we have angular.z field available, to make the robot rotate.
 - We can rotate the robot with a command:
 
-
+    ```
     ros2 topic pub /cmd_vel geometry_msgs/msg/Twist "{angular: {z: 0.5}}"
+    ```
 </details>
 
 
