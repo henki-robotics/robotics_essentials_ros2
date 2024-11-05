@@ -55,7 +55,7 @@ It uses ROS 2 to implement its functionalities and has a simulated [Gazebo versi
 
 ## Launch Andino robot in Gazebo simulation
 
-If you didn't yet, follow the instruction in [Exercises 0 - Setup](/exercises_0-setup/README.md) to setup and launch Andino Gazebo simulation with RViz.
+If you didn't yet, follow the instruction in [Exercises 0 - Setup](/0-setup/README.md) to setup and launch Andino Gazebo simulation with RViz.
 
 Here is a quick summary of all the required steps for launching the simulation:
 
@@ -81,7 +81,7 @@ Publishers send messages to a named topic, while subscribers listen to that topi
 ### Subscribe to a topic
 By subscribing to a topic, you can read sensor data (lidar, camera) and other useful data (map, odometry) from your robot.
 
-[Open a new terminal inside the Docker container](/exercises_0-setup/README.md#new-terminal) and run the following commands:
+[Open a new terminal inside the Docker container](/0-setup/README.md#new-terminal) and run the following commands:
 
 1. List all the available ROS 2 topics
     ```commandline
