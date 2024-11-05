@@ -10,4 +10,6 @@ collaboration with [Henki Robotics](https://henkirobotics.com/).
 
 ## Exercises
 
-0. Setup
+0. [Setup](0-setup)
+1. [ROS 2 Introduction](1-ros_2_introduction)
+2. [SLAM and Navigation Demo](2-slam_and_navigation_demo)
