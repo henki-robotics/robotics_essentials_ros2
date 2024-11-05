@@ -36,13 +36,13 @@ AMCL uses sensor data, typically from a LiDAR, to refine the estimated pose of t
 ## Mapping demo
 Next, we will run Andino in simulation and map the environment with it.
 
-1. Run the simulation [inside the Docker container](/0-setup/README.md)
+1. Run the simulation inside the Docker container ([How to run Docker container](/0-setup/Docker%20Cheat%20Sheet.md))
 
     ```commandline
     ros2 launch andino_gz andino_gz.launch.py
     ```
 
-1. [Open a new terminal inside the Docker container](/0-setup/README.md#new-terminal) and run slam-toolbox
+1. Open a new terminal inside the Docker container and run slam-toolbox ([How to open terminal in Docker container](/0-setup/Docker%20Cheat%20Sheet.md))
     
     ```commandline
     ros2 launch andino_gz slam_toolbox_online_async.launch.py
