@@ -10,7 +10,7 @@ and the latest installation instructions. Optionally, you can follow the command
 
   ### Installing Docker
   ### Firstly follow these steps:
-  1. Set up Docker's `apt` repositoryby running these commands (one-by-one) in a new terminal:
+  1. Set up Docker's `apt` repository by running these commands (one-by-one) in a new terminal:
 ```
 # Add Docker's official GPG key:
 sudo apt-get update
