@@ -169,6 +169,8 @@ The main component for handling transforms in ROS 2 is the tf2 library. It provi
 
 By using transforms, robots can effectively understand their position in the world and how their sensors and motors are located in relation to their body.
 
+The relationship between these coordinate frames is determined with tf-tree.
+It essentially tells with a tree-structure what is the child-frame's position in relation to the parent frame.
 
 ### Commonly used coordinate frames
 
@@ -200,21 +202,32 @@ The laser_link frame denotes the position of a laser sensor on the robot.
 It is essential for interpreting the data collected by the laser for tasks like mapping and obstacle detection, providing a reference for where the sensor is located in relation to other frames.
 
 
-### Changing the Fixed Frame
+### TF frames in RViz 
+
+When working with RViz, you will need to choose the "Fixed Frame" to determine from which frame the data is visualized.
+Only data that comes from this frame and its child frames will be visible. 
+For example, if your Fixed Frame is set to "base_link", you will not be able to see data that comes from the "odom" frame.
+
+
+#### Changing the Fixed Frame
+
+1. Try to visualize odometry data by adding a subscription to "/odom" topic. 
+No data will be visible, since we are by default tracking the "base_link" frame.
 
 1. Change the "Fixed Frame" from "Global Options" to "odom", to use odometry as the coordinate frame instead of the robot base_link frame.
 
     <img src="images/rviz_fixed_frame.png" alt="RViz Fixed Frame" width="400">
 
-2. Open the "Tree" under the TF menu to view the whole tf-tree for the coordinate frames
+1. Odometry data is now visible.
 
-    **Tip:** You might need to press reset-button on bottom left, for the odom-frame to be correctly on top of the tree. We 
-    
-    <img src="images/tf_tree.png" alt="ROS 2 tf tree" width="300">
+#### Visualizing the TF-tree
 
-**Exercise 3:**
-- What was the coordinate origin in RViz when the "Fixed Frame" was `base_link`?
-- What is the coordinate origin now after we switched it to `odom`?
+Sometimes it might be useful to check the robot's tf-tree for debugging purposes. 
+You can do it by opening the "Tree" option under the TF menu.
+
+**Tip:** You might need to press reset-button on bottom left, for the odom-frame to be correctly on top of the tree.
+
+<img src="images/tf_tree.png" alt="ROS 2 tf tree" width="300">
 
 
 ## Summary
