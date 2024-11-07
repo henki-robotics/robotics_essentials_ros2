@@ -235,7 +235,9 @@ Move the robot around with teleoperation using Gazebo. You can see that the robo
 Sometimes it might be useful to check the robot's tf-tree for debugging purposes. 
 You can do it by opening the "Tree" option under the TF menu.
 
-**Tip:** You might need to press reset-button on bottom left, for the odom-frame to be correctly on top of the tree.
+**Tip:** You might need to press reset-button on bottom left, for the odom-frame to be correctly on top of the tree. 
+This is needed because the `odom` frame is the one that tracks the movement of the robot in the environment, so it makes
+sense for it to be the main parent frame, so that we easily keep track of the movement of all the other frames as well.
 
 <img src="images/tf_tree.png" alt="ROS 2 tf tree" width="300">
 
