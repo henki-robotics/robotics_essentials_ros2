@@ -162,17 +162,21 @@ Our robot is constantly publishing images from the simulated camera. Let's see h
 
 ## TFs - The coordinate transforms
 
-In ROS 2, transforms are used to describe the spatial relationships between different coordinate frames in a robotic system. 
-They allow you to convert positions and orientations from one frame to another, which is crucial for tasks like navigation, sensor fusion, and manipulation.
+In ROS 2, transforms are used to describe the spatial relationships between different coordinate frames in a robotic system.
+You can think about TFs as the coordinate frames that sit in the most important locations in your robot and in the environment.
+They sit at the center of the robot, at the center of sensors, at joints, and there are so the "Map" and "Odometry" frames.
+They allow you to convert positions and orientations from one frame to another, and basically keep track of how each part of 
+your robot moves in relation to the other parts of the robot. This is crucial for tasks like navigation, sensor fusion, and 
+manipulation.
 
 The main component for handling transforms in ROS 2 is the tf2 library. It provides:
 * Coordinate Frames: Each sensor or part of a robot has its own coordinate frame (e.g., the robot's base, sensors, end effectors).
-* Transformations: These include translations (movement along axes) and rotations (change in orientation) between frames.
+* Transformations: These include translations (movement along axes) and rotations (changes in orientation) between frames.
 
 By using transforms, robots can effectively understand their position in the world and how their sensors and motors are located in relation to their body.
 
 The relationship between these coordinate frames is determined with tf-tree.
-It essentially tells with a tree-structure what is the child-frame's position in relation to the parent frame.
+It essentially tells with a tree-like structure what is the child-frame's position in relation to the parent frame.
 
 ### Commonly used coordinate frames
 
@@ -206,8 +210,9 @@ It is essential for interpreting the data collected by the laser for tasks like 
 
 ### TF frames in RViz 
 
-When working with RViz, you will need to choose the "Fixed Frame" to determine from which frame the data is visualized.
-Only data that comes from this frame and its child frames will be visible. 
+When working with RViz, you will need to choose the "Fixed Frame" to determine from which frame's perspective you are 
+visualizing the data.
+Only the data that comes from this frame and its child frames will be visible. 
 For example, if your Fixed Frame is set to "base_link", you will not be able to see data that comes from the "odom" frame.
 
 
