@@ -1,6 +1,6 @@
 # Exercises 1 - ROS 2 introduction
 
-In the first set of the exercises, we will showcase a demo of running a simulated robot, and control it using ROS 2.
+In the first set of exercises, we will showcase a demo of running a simulated robot, and control it using ROS 2.
 You will also learn the very basics of ROS 2 topics and transforms.
 
 <!-- TOC -->
@@ -50,12 +50,12 @@ It is designed to support real-time performance and multi-robot systems.
 
 <img src="images/andino_robot.png" alt="Andino" width="200">
 
-Andino is a fully open-source, educational low-cost robot by [Ekumen](https://github.com/Ekumen-OS/andino).
-It uses ROS 2 to implement its functionalities and has a simulated [Gazebo version](https://github.com/Ekumen-OS/andino_gz) of it available.
+Andino is a fully open-source, educational low-cost robot developed by [Ekumen](https://github.com/Ekumen-OS/andino).
+It uses ROS 2 to implement its functionalities and has fully functional [Gazebo simulations](https://github.com/Ekumen-OS/andino_gz) of it available.
 
-## Launch Andino robot in Gazebo simulation
+## Launching the Andino robot in a Gazebo simulation
 
-If you didn't yet, follow the instruction in [Exercises 0 - Setup](/0-setup/README.md) to setup and launch Andino Gazebo simulation with RViz.
+If you didn't yet, follow the instructions in [Exercises 0 - Setup](/0-setup/README.md) to setup and launch an Andino Gazebo simulation with RViz.
 
 Here is a quick summary of all the required steps for launching the simulation:
 
@@ -68,7 +68,7 @@ Here is a quick summary of all the required steps for launching the simulation:
 ### Control the robot in Gazebo
 
 **Exercise 1:**
-Open the teleop panel and give commands to robot to move it around
+Open the teleop panel and give commands to move the robot around. Try out all the teleoperation menus, and experiment with all the ways in which you can control Andino.
 <br> 
 
 <img src="images/gazebo_teleop.png" alt="Gazebo teleoperation" width="800">
@@ -81,7 +81,7 @@ Publishers send messages to a named topic, while subscribers listen to that topi
 ### Subscribe to a topic
 By subscribing to a topic, you can read sensor data (lidar, camera) and other useful data (map, odometry) from your robot.
 
-[Open a new terminal inside the Docker container](/0-setup/README.md#new-terminal) and run the following commands:
+Open a new terminal inside the Docker container and run the following commands ([How to open terminal in Docker container](/0-setup/Docker%20Cheat%20Sheet.md)):
 
 1. List all the available ROS 2 topics
     ```commandline
@@ -102,6 +102,8 @@ By subscribing to a topic, you can read sensor data (lidar, camera) and other us
     ```
    <img src="images/ros2_topic_info.png" alt="ROS 2 topic info" width="600">
 
+We see that there is one publisher for the `/scan` topic, which is the driver node of the simulated lidar on Andino. What node is then subscribing to this topic?
+
 ### Publish to a topic
 1. Move the robot by publishing to cmd_vel topic
 
@@ -117,7 +119,7 @@ By subscribing to a topic, you can read sensor data (lidar, camera) and other us
    
 **Exercise 2:**
 
-Publish a message to rotate the robot in its place. First, check what is the message type of the `/cmd_vel` topic using ros2 topic info command, and then check the possible message contents with `ros2 interface show <msg_type>`
+Publish a message to rotate the robot in its place. First, check what is the message type of the `/cmd_vel` topic using `ros2 topic info` command, and then check the possible message contents with `ros2 interface show <msg_type>`
 
 
 
@@ -125,7 +127,7 @@ Publish a message to rotate the robot in its place. First, check what is the mes
     <summary>Solution:</summary>
     
 - `ros2 topic info /cmd_vel` shows us that the message type is `geometry_msgs/msg/Twist`
-- `ros2 interface show geometry_msgs/msg/Twist` shows us that we have angular.z field available, to make the robot rotate.
+- `ros2 interface show geometry_msgs/msg/Twist` shows us that we have the "Angular" `Vector3` field that has the `z` field available, to make the robot rotate.
 - We can rotate the robot with a command:
 
     ```
@@ -141,7 +143,7 @@ With these examples, you will learn how to do that.
 
 ### Subscribe to a new data source: Camera
 
-Our robot is constantly publishing images from the simulated camera. 
+Our robot is constantly publishing images from the simulated camera. Let's see how those images look like!
 
 1. Click "Add" -button from the bottom left corner of RViz
 
@@ -155,21 +157,6 @@ Our robot is constantly publishing images from the simulated camera.
     
     <img src="images/rviz_add_camera_2.png" alt="RViz camera source" width="350">
 
-### Changing the Fixed Frame
-
-1. Change the Fixed Frame from Global Options to "odom", to use odometry as the coordinate frame instead of the robot base_link frame.
-
-    <img src="images/rviz_fixed_frame.png" alt="RViz Fixed Frame" width="400">
-
-2. Open the "Tree" under the TF menu to view the whole tf-tree for the coordinate frames
-
-    **Tip:** You might need to press reset-button on bottom left, for the odom-frame to be correctly on top of the tree.
-    
-    <img src="images/tf_tree.png" alt="ROS 2 tf tree" width="300">
-
-**Exercise 3:**
-- What was the coordinate origin in RViz when the "Fixed Frame" was `base_link`?
-- What is the coordinate origin now after we switched it to `odom`?
 
 ## TFs - The coordinate transforms
 
@@ -211,6 +198,24 @@ The base_link frame represents the robot's main body and is used as a reference 
 
 The laser_link frame denotes the position of a laser sensor on the robot. 
 It is essential for interpreting the data collected by the laser for tasks like mapping and obstacle detection, providing a reference for where the sensor is located in relation to other frames.
+
+
+### Changing the Fixed Frame
+
+1. Change the "Fixed Frame" from "Global Options" to "odom", to use odometry as the coordinate frame instead of the robot base_link frame.
+
+    <img src="images/rviz_fixed_frame.png" alt="RViz Fixed Frame" width="400">
+
+2. Open the "Tree" under the TF menu to view the whole tf-tree for the coordinate frames
+
+    **Tip:** You might need to press reset-button on bottom left, for the odom-frame to be correctly on top of the tree. We 
+    
+    <img src="images/tf_tree.png" alt="ROS 2 tf tree" width="300">
+
+**Exercise 3:**
+- What was the coordinate origin in RViz when the "Fixed Frame" was `base_link`?
+- What is the coordinate origin now after we switched it to `odom`?
+
 
 ## Summary
 
