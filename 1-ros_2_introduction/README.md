@@ -214,9 +214,9 @@ For example, if your Fixed Frame is set to "base_link", you will not be able to 
 #### Changing the Fixed Frame
 
 1. Try to visualize odometry data by adding a subscription to "/odom" topic. 
-No data will be visible, since we are by default tracking the "base_link" frame.
+No data will be visible, since we are by default tracking the "base_footprint" frame.
 
-1. Change the "Fixed Frame" from "Global Options" to "odom", to use odometry as the coordinate frame instead of the robot base_link frame.
+1. Change the "Fixed Frame" from "Global Options" to "odom", to use odometry as the coordinate frame instead of the robot base_footprint frame.
 
     <img src="images/rviz_fixed_frame.png" alt="RViz Fixed Frame" width="400">
 
