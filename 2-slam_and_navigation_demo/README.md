@@ -47,8 +47,7 @@ Next, we will run Andino in simulation and map the environment with it.
     ```commandline
     ros2 launch andino_gz slam_toolbox_online_async.launch.py
     ```
-1. In RViz, subscribe to /map topic to view the map that is being built. 
-Remember to also change the Fixed Frame to "map" from Global Options!
+1. In RViz, subscribe to /map topic to view the map that is being built.
     
     <img src="images/subscribe_to_map_topic.png" alt="Subscribe to map topic" width="600">
 

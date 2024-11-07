@@ -210,22 +210,25 @@ It is essential for interpreting the data collected by the laser for tasks like 
 
 ### TF frames in RViz 
 
-When working with RViz, you will need to choose the "Fixed Frame" to determine from which frame's perspective you are 
-visualizing the data.
-Only the data that comes from this frame and its child frames will be visible. 
-For example, if your Fixed Frame is set to "base_link", you will not be able to see data that comes from the "odom" frame.
-
+When working with RViz, you will need to use the "Fixed Frame" to determine from which frame's perspective you are 
+visualizing the data. 
+This is an important feature to know about, as sometimes the data you are looking to visualize might not be available if you are visualizing a wrong frame. 
 
 #### Changing the Fixed Frame
 
-1. Try to visualize odometry data by adding a subscription to "/odom" topic. 
-No data will be visible, since we are by default tracking the "base_footprint" frame.
+1. On Andino, the default frame is set to "base_footprint". 
+This means that RViz coordinate origin (0, 0), is set to the robot's footprint.
+Move the robot around with teleoperation using Gazebo. You can see that the robot is always located in the center of the grid that RViz visualizes.
+    
+    <img src="images/rviz_coordinate_frame.png" alt="RViz base_footprint frame" width="400">
 
-1. Change the "Fixed Frame" from "Global Options" to "odom", to use odometry as the coordinate frame instead of the robot base_footprint frame.
+1. Change the "Fixed Frame" from "Global Options" to "odom" to use odometry as the coordinate frame instead of the robot base_footprint frame.
 
     <img src="images/rviz_fixed_frame.png" alt="RViz Fixed Frame" width="400">
 
-1. Odometry data is now visible.
+1. Drive the robot around. You will see the robot moving in relation to "odom" frame.
+    
+    <img src="images/rviz_odom_frame.png" alt="RViz odom frame" width="400">
 
 #### Visualizing the TF-tree
 
