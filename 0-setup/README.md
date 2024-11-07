@@ -96,7 +96,7 @@ sudo systemctl restart docker
 </details>
 
 
-All the practical examples on this course are containerized with Docker, so no 
+All the practical examples in this course are containerized with Docker, so no 
 ROS 2 or Gazebo simulation installations are required!
 
 ## Installation
@@ -112,7 +112,7 @@ ROS 2 or Gazebo simulation installations are required!
     mkdir -p $HOME/exercises_ws/src
     ```
 
-## Launching the Docker
+## Launching the Docker container
 
 1. Use docker compose to build and run the Docker container, which includes the ROS 2, Gazebo and simulated Andino installation.
     ```commandline
