@@ -114,6 +114,12 @@ ROS 2 or Gazebo simulation installations are required!
 
 ## Launching the Docker container
 
+Before anything run this in a new terminal. This will give disdplay permissions to your containers:
+
+```commandline
+    xhost +
+```
+
 1. Use docker compose to build and run the Docker container, which includes the ROS 2, Gazebo and simulated Andino installation.
     ```commandline
     cd robotics_essentials_ros2/docker/
