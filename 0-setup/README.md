@@ -4,6 +4,7 @@
 - Ubuntu
 - [Docker and `docker compose`](https://docs.docker.com/engine/install/ubuntu/). Follow the link for the official tutorial
 and the latest installation instructions. Optionally, you can follow the commands below, but they might get out of date:
+- Git (`sudo apt install git`)
 
 <details>
   <summary>Installing Docker and "docker compose"</summary>
