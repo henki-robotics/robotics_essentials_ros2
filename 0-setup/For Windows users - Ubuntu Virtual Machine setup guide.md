@@ -25,7 +25,7 @@ download version `24.04.1 LTS`
 
 - Create a new VM by pressing "New", in the main VirtualBox view.
 
-<img src="/exercises_0-setup/images/create_ubuntu_vm_step_1.png" alt="Create Ubuntu VM step 1">
+<img src="/0-setup/images/create_ubuntu_vm_step_1.png" alt="Create Ubuntu VM step 1">
 
 - On the next step, you need to configure the first details about your VM. Add a descriptive name, choose a new folder 
 on your machine on a disk where you have plenty of space, as this is the folder where your VM will be installed and where
@@ -33,7 +33,7 @@ all the files on the VM will be hosted. Finally, add the path of the Ubuntu 24 `
 sure that you tick the "Skip Unattended Installation" box (this will allow you to go through all the steps of installing
 Ubuntu 24 inside your VM) This is how the VirtualBox window should look before you click "Next":
 
-<img src="/exercises_0-setup/images/create_ubuntu_vm_step_2.png" alt="Create Ubuntu VM step 2">
+<img src="/0-setup/images/create_ubuntu_vm_step_2.png" alt="Create Ubuntu VM step 2">
 
 - On this step we will configure the base memory and number of CPU cores that your VM is allowed to use. You should base
 the values you put here on the specifications of your computer, so make sure you don't put too much. In this example we 
@@ -41,13 +41,13 @@ are going with 8192 Mb of RAM (8 Gb) and 6 CPU cores. We recommend at least 4 Gb
 with as low as 2 Gb of RAM, but the performance of your VM along with our demos will take a hit. The VirtualBox windows should look something like this 
 before you click "Next":
 
-<img src="/exercises_0-setup/images/create_ubuntu_vm_step_3.png" alt="Create Ubuntu VM step 3">
+<img src="/0-setup/images/create_ubuntu_vm_step_3.png" alt="Create Ubuntu VM step 3">
 
 - On this step we are allocating the maximum amount of hard disk space for our VM. We are going with 80 Gb. You can put 
 even more if you would like, or less, but we would not recommend less than 40 Gb. This is how VirtualBox should look like 
 before you click "Next":
 
-<img src="/exercises_0-setup/images/create_ubuntu_vm_step_4.png" alt="Create Ubuntu VM step 4">
+<img src="/0-setup/images/create_ubuntu_vm_step_4.png" alt="Create Ubuntu VM step 4">
 
 - On this step check again that all the details of your new VM look good and then click "Finish".
 
@@ -59,29 +59,29 @@ from our host machine (Windows). For this, we need to make sure that the network
 
 - From the main view of VirtualBox, click your new VM and then click "Settings".
 
-<img src="/exercises_0-setup/images/configure_network_1.png" alt="Configure VM network step 1">
+<img src="/0-setup/images/configure_network_1.png" alt="Configure VM network step 1">
 
 - From the "Basic" VM settings section, check that in the "Network" section, "Adapter 1" is enabled and that it is 
 attached to "NAT". Click "Ok" after checking.
 
-<img src="/exercises_0-setup/images/configure_network_2.png" alt="Configure VM network step 2">
+<img src="/0-setup/images/configure_network_2.png" alt="Configure VM network step 2">
 
 - On Windows 11, go to "Advanced Network Settings" and under "Network Adapters" make sure to enable the 
 "VirtualBox Host-Only Ethernet Adapter". This is how the window should look like. For Windows 10 similar steps should be
 followed.
 
-<img src="/exercises_0-setup/images/configure_network_3.png" alt="Configure VM network step 3">
+<img src="/0-setup/images/configure_network_3.png" alt="Configure VM network step 3">
 
 ### Installing Ubuntu 24
 - On the main view of VirtualBox, choose the VM you just created and click "Start" (alternatively you can double-click
 the selected VM) to run it for the first time. We will now go through the process of installing Ubuntu inside the VM.
 
-<img src="/exercises_0-setup/images/install_ubuntu_1.png" alt="Install Ubuntu step 1">
+<img src="/0-setup/images/install_ubuntu_1.png" alt="Install Ubuntu step 1">
 
 - Once the VM boots up for the first time, you will be greeted by a Grub menu. Click inside VM and choose the "Try or 
 install Ubuntu" option by pressing Enter.
 
-<img src="/exercises_0-setup/images/install_ubuntu_2.png" alt="Install Ubuntu step 2">
+<img src="/0-setup/images/install_ubuntu_2.png" alt="Install Ubuntu step 2">
 
 - Once the Ubuntu preview boots up, you should be greeted by a menu walking you through the steps of installing Ubuntu.
   - Choose your preferred language.
@@ -97,7 +97,7 @@ the "Use wired connection" option.
 installed to the new folder you created and chose while creating the VM.
   - On the next step, choose the details of your main user account for Ubuntu. You can also choose a password if you wish.
 The window should look something like this:
-  <img src="/exercises_0-setup/images/install_ubuntu_3.png" alt="Install Ubuntu step 3">
+  <img src="/0-setup/images/install_ubuntu_3.png" alt="Install Ubuntu step 3">
   - Select your timezone.
   - Review your choices and click "Install".
   - Wait for Ubuntu 24 to finish installing inside your VM. Click "Restart now" once the installation finishes.
@@ -124,7 +124,7 @@ Let's increase the available video memory for the VM and enable the 3D accelerat
 "Settings" of the VM, switch to the "Expert" tab, and under "Display" increase the "Video Memory" to 128 MB and tick the 
 "Enable 3D Acceleration" box. Then click "Ok".
 
-<img src="/exercises_0-setup/images/enable_3D_acceleration.png" alt="Enable 3D acceleration">
+<img src="/0-setup/images/enable_3D_acceleration.png" alt="Enable 3D acceleration">
 
 ### Enable the shared clipboard and optionally Drag'n'Drop functionality between your host machine and the Ubuntu 24 VM
 Sometimes it can be quite a hassle to copy information and files between your Windows host machine and the Ubuntu VM.
@@ -133,7 +133,7 @@ To enable both the shared clipboard and also the Drag'n'Drop functionality, go t
 powered off, select "General" and from the "Advanced" tab of the "General" section, enable both of these 
 functionalities in the way you see fit!
 
-<img src="/exercises_0-setup/images/clipboard.png" alt="clipboard">
+<img src="/0-setup/images/clipboard.png" alt="clipboard">
 
 ### Enable custom screen resolutions for your VM
 You might have already observed that the screen resolution of the Ubuntu 24 VM is quite small, and sometimes it doesn't 
@@ -154,7 +154,7 @@ VirtualBox tab where our Ubuntu VM is running.
 3. Once you do this, you will see in the left menu inside Ubuntu a small CD icon pops up. Click it. Open a new terminal 
 inside the window that pops up.
 
-<img src="/exercises_0-setup/images/guest_additions.png" alt="Guest additions 1">
+<img src="/0-setup/images/guest_additions.png" alt="Guest additions 1">
 
 4. In the opened terminal run:
 
