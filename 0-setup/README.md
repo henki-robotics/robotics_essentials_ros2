@@ -130,7 +130,7 @@ xhost +
     Wait until the container has been successfully launched
     <img src="/images/docker_compose_up.png" alt="Andino Simulation Screenshot">
 
-1. Open a new terminal with CTRL+ALT+T and run this command to start a new terminal inside the Docker container:
+1. Open a new terminal with CTRL+ALT+T (or by using right click on Desktop -> "Open in Terminal") and run this command to start a new terminal inside the Docker container:
     ```commandline
     docker exec -it robotics_essentials_ros2 bash
     ```
