@@ -16,7 +16,7 @@ Now it is time to use the robot to build a new 2D map of the simulated environme
 
 ### Slam-toolbox
 [Slam-toolbox](https://github.com/SteveMacenski/slam_toolbox/tree/ros2) is an advanced 2D SLAM (Simultaneous Localization and Mapping) solution for ROS 2. 
-It provides tools for online and offline mapping, lifelong mapping, loop closure, and localization. 
+It provides tools for online (real-time) and offline mapping, lifelong mapping, loop closure, and localization. 
 Slam-toolbox is designed for both real-time applications and mapping large-scale environments efficiently.
 
 ### Nav2
@@ -57,21 +57,23 @@ Next, we will run Andino in simulation and map the environment with it.
 
     **Tip:** You can right-click the robot in simulation and choose "Follow" -camera mode to better keep track of your robot.
 
-1. Once you are satisfied with the map, save it with:
+1. Once you are satisfied with the map, open a new terminal inside the Docker container and run this command to save it:
     ```commandline
     ros2 run nav2_map_server map_saver_cli --free 0.15 --fmt png -f /home/user/andino_map
     ```
 
 ## Autonomous navigation demo
 
-Before proceeding, stop the previous simulation and slam-toolbox runs with CTRL-C.
+Before proceeding, stop the previous simulation and slam-toolbox runs with CTRL-C. Make sure you check all your open 
+terminals to stop everything you had running before.
 
-1. Launch the Andino simulation with Nav2
+1. Open a new terminal inside the Docker container and launch the Andino simulation with Nav2
     ```commandline
     ros2 launch andino_gz andino_gz.launch.py nav2:=True
     ```
 
-1. **Optional:** Navigation will start with a default Andino map. If you wish to switch to the map you just mapped, you can call a ROS service:
+1. **Optional:** Navigation will start with a default Andino map. If you wish to switch to the map you just mapped, 
+open a new terminal inside the container and call a ROS service:
    ```commandline
     ros2 service call /map_server/load_map nav2_msgs/srv/LoadMap "{map_url: /home/user/andino_map.yaml}"
    ```

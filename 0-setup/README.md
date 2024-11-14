@@ -4,6 +4,7 @@
 - Ubuntu
 - [Docker and `docker compose`](https://docs.docker.com/engine/install/ubuntu/). Follow the link for the official tutorial
 and the latest installation instructions. Optionally, you can follow the commands below, but they might get out of date:
+- Git (`sudo apt install git`)
 
 <details>
   <summary>Installing Docker and "docker compose"</summary>
@@ -114,6 +115,12 @@ ROS 2 or Gazebo simulation installations are required!
 
 ## Launching the Docker container
 
+Before anything run this in a new terminal. This will give display permissions to your containers:
+
+```commandline
+xhost +
+```
+
 1. Use docker compose to build and run the Docker container, which includes the ROS 2, Gazebo and simulated Andino installation.
     ```commandline
     cd robotics_essentials_ros2/docker/
@@ -123,7 +130,7 @@ ROS 2 or Gazebo simulation installations are required!
     Wait until the container has been successfully launched
     <img src="/images/docker_compose_up.png" alt="Andino Simulation Screenshot">
 
-1. To start new terminal inside the Docker container, run:
+1. Open a new terminal with CTRL+ALT+T (or by using right click on Desktop -> "Open in Terminal") and run this command to start a new terminal inside the Docker container:
     ```commandline
     docker exec -it robotics_essentials_ros2 bash
     ```
