@@ -1,15 +1,15 @@
 # Exercises 3 - Create ROS 2 package
-For the upcoming exercises, you will start writing some Python code.
+In the upcoming exercise session, you will start writing some Python code.
 ROS 2 organizes code neatly in **packages** to separate different 
 functionalities, and make them to be easily installable and shareable.
 
-You can follow this tutorial to easily create a new package using 
+You can follow this tutorial to easily create a new package using the 
 [Turtle Nest](https://github.com/Jannkar/turtle_nest) GUI tool, or learn how to create packages manually from the command line by following 
 [the official ROS 2 documentation](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html).
 
 ## Create a new package
 1. Bring up the Docker container and open a new terminal inside it ([How to run Docker container](/0-setup/Docker%20Cheat%20Sheet.md))
-1. Run a command `turtle-nest` to bring up the guided package creation
+2. Run the command `turtle-nest` to bring up the guided package creation
 
 Use the following settings to create the package:
 
@@ -54,8 +54,8 @@ We use the `--symlink-install` to make our Python code symbolically linked, so t
 Let's check what our newly created package contains.
 
 We created our package in the `exercises_ws` folder. 
-This folder mounted by our docker-compose file, meaning that we can access it on our host Ubuntu system as well in `$HOME/exercises_ws`, 
-and all the code you write there will be automatically synchronized inside the container.
+This folder is mounted inside our container in the `volumes` section of our [docker-compose.yaml](/docker/docker-compose.yaml) file, meaning that its contents are synced between our Ubuntu host and inside the Docker container at the `$HOME/exercises_ws`. 
+All the code we write there will be automatically synchronized inside the container.
 
 Open the exercises_ws in your favorite IDE to take a closer look at what the new package contains.
 For this course, we'll mainly use [PyCharm (Community Edition)](https://www.jetbrains.com/pycharm/download/?section=linux) as the IDE, 
@@ -76,6 +76,7 @@ It imports the necessary things, such as rclpy for writing ROS 2 Python code.
 A new Class OdometryPublisher is automatically created, that inherits a ROS 2 node to get access to features such as publishing and subscribing.
 In the main function, we initialize rclpy and the new node, as well as spin it in an infinite loop, which can be interrupted with CTRL-C.
 ROS 2 nodes "spin" to keep checking for new messages or requests so they can respond as soon as something happens.
+
 <img src="images/odometry_node.png" alt="Odometry Node" width="600">
 
 ### setup.py
@@ -96,16 +97,16 @@ Run:
 
     ros2 run ros2_exercises odometry_publisher
 
-This will print you a message from your OdometryPublisher Node:
+This will print a message from your new `OdometryPublisher` Node:
 
 <img src="images/ros2_run.png" alt="ros2 run" width="600">
 
 ## Summary
 
 In this tutorial, you learned:
-- How to create a new ROS 2 Python package using Turtle Nest tool
-- How to build and source your ROS 2 packages
-- What files and folders ROS 2 Python package contains
-- How ROS 2 Python Nodes look like
-- What setup.py and package.xml files are
-- How to run your ROS 2 Node
+- How to create a new ROS 2 Python package using the Turtle Nest tool.
+- How to build and source your ROS 2 packages.
+- What files and folders a usual ROS 2 Python package contains.
+- How ROS 2 Python Nodes look like.
+- What the `setup.py` and `package.xml` files are and how do they look like.
+- How to run your new ROS 2 Node.
