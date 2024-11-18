@@ -8,7 +8,7 @@ You can follow this tutorial to easily create a new package using the
 [the official ROS 2 documentation](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html).
 
 ## Create a new package
-1. Bring up the Docker container and open a new terminal inside it ([How to run Docker container](/0-setup/Docker%20Cheat%20Sheet.md))
+1. Launch the Docker container and open a new terminal inside it ([How to run Docker container](/0-setup/Docker%20Cheat%20Sheet.md))
 2. Run the command `turtle-nest` to bring up the guided package creation
 
 Use the following settings to create the package:
@@ -17,13 +17,19 @@ Use the following settings to create the package:
 
 **Destination:** `/home/user/exercises_ws/src`
 
+-> Next
+
 **Package Type:** `Python`. Uncheck the C++ option
 
 **Python Node Name:** `odometry_publisher` (Will be used for the next exercises)
 
+-> Next
+
 **Maintainer Name:** `<Your name>`
 
 **Package License:** `No license`
+
+-> Create Package
 
 
 Other fields can be left empty / unchecked, as they are not needed in these exercises.
@@ -58,7 +64,7 @@ This folder is mounted inside our container in the `volumes` section of our [doc
 All the code we write there will be automatically synchronized inside the container.
 
 Open the exercises_ws in your favorite IDE to take a closer look at what the new package contains.
-For this course, we'll mainly use [PyCharm (Community Edition)](https://www.jetbrains.com/pycharm/download/?section=linux) as the IDE, 
+For this course, the examples are mainly done with [PyCharm (Community Edition)](https://www.jetbrains.com/pycharm/download/?section=linux), 
 which is freely available.
 
 <img src="images/package_structure.png" alt="Package Structure" width="300">
@@ -87,11 +93,12 @@ If you add new Nodes for your package, you need to declare them here.
 
 ### package.xml
 Contains metadata for your package, such as maintainer name and package description.
-Also, all the necessary package dependencies should be added here.
+Also, all the necessary package dependencies should be added here, such as existing core ROS packages or 
+dependencies to your other ROS packages.
 
 
 
-## Run your newly create node
+## Run your newly created node
 As the final step, let's test that your newly created ROS 2 node works correctly.
 Run:
 
