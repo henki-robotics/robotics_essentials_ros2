@@ -59,7 +59,7 @@ Next, we will run Andino in simulation and map the environment with it.
 
 1. Once you are satisfied with the map, open a new terminal inside the Docker container and run this command to save it:
     ```commandline
-    ros2 run nav2_map_server map_saver_cli --free 0.15 --fmt png -f /home/user/andino_map
+    ros2 run nav2_map_server map_saver_cli --free 0.15 --fmt png -f $HOME/andino_map
     ```
 
 ## Autonomous navigation demo
@@ -75,7 +75,7 @@ terminals to stop everything you had running before.
 1. **Optional:** Navigation will start with a default Andino map. If you wish to switch to the map you just mapped, 
 open a new terminal inside the container and call a ROS service:
    ```commandline
-    ros2 service call /map_server/load_map nav2_msgs/srv/LoadMap "{map_url: /home/user/andino_map.yaml}"
+    ros2 service call /map_server/load_map nav2_msgs/srv/LoadMap "{map_url: $HOME/andino_map.yaml}"
    ```
 
 1. Give a "2D Pose Estimate" for AMCL in RViz, so the robot has idea where it starts from.
