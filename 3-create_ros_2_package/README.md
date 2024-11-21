@@ -15,7 +15,7 @@ Use the following settings to create the package:
 
 **Package name:** `ros2_exercises`
 
-**Destination:** `/home/user/exercises_ws/src`
+**Destination:** Path to exercises_ws, for example: `/home/user/exercises_ws/src`
 
 -> Next
 
