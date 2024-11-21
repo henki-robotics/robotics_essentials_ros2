@@ -1,6 +1,6 @@
-# Exercises 4 - Robot Odometry
+# Exercise 4 - Robot Odometry
 <!-- TOC -->
-* [Exercises 4 - Robot Odometry](#exercises-4---robot-odometry)
+* [Exercise 4 - Robot Odometry](#exercise-4---robot-odometry)
     * [Common Types of Odometry Data](#common-types-of-odometry-data)
   * [Exercise: Calculate Odometry from Wheel Encoders](#exercise-calculate-odometry-from-wheel-encoders)
     * [Getting started](#getting-started-)
@@ -26,7 +26,7 @@ We can answer this question by knowing how much each wheel has rotated and using
 
 Odometry can be estimated using data from the robot’s sensors.
 
-- **Wheel Odometry:** Uses data from wheel encoders, which measure wheel rotations. By calculating how much each wheel has rotated, the robot can estimate how far it has moved.
+- **Wheel Odometry:** Uses data from wheel encoders, or other types of sensors that can keep track of the position and measure the wheel rotations. By calculating how much each wheel has rotated, the robot can estimate how far it has moved.
 - **Visual Odometry:** Uses cameras or depth sensors to estimate movement by analyzing changes in images as the robot moves.
 - **Inertial Odometry:** Utilizes inertial measurement units (IMUs) that provide data on acceleration and rotational velocity to estimate position changes.
 - **Sensor Fusion Odometry:** Combines multiple sources (e.g., wheel encoders, IMUs, cameras) for more accurate and reliable odometry.
@@ -96,7 +96,7 @@ class OdometryPublisher(Node):
         #  them with a wheel radius. Then calculate the robot's linear and angular velocities
         #  with the following formulas:
         #  linear velocity = (vel right + vel left) / 2.0
-        #  angular velocity = (vel right + vel left) / wheel separation
+        #  angular velocity = (vel right - vel left) / wheel separation
 
         # TODO: Now that we know how much time has elapsed since the last calculation,
         #  what was robot's previous orientation angle (theta) and with what speed the
@@ -107,7 +107,8 @@ class OdometryPublisher(Node):
         # TODO: Create new Odometry message and populate stamp and frame IDs. The parent frame
         #  ID is "odom" and child frame ID is "base_link".
 
-        # TODO: Add the updated robot's position and orientation to the Odometry message
+        # TODO: Add the updated robot's position and orientation to the Odometry message. 
+        # Be careful, the Odometry message accepts the orientation in Quaternion notation!
 
         # TODO: Add the updated linear and angular velocities in the Odometry message
 
@@ -287,7 +288,7 @@ class OdometryPublisher(Node):
         #  them with a wheel radius. Then calculate the robot's linear and angular velocities
         #  with the following formulas:
         #  linear velocity = (vel right + vel left) / 2.0
-        #  angular velocity = (vel right + vel left) / wheel separation
+        #  angular velocity = (vel right - vel left) / wheel separation
         v_left = left_wheel_vel * self.wheel_radius
         v_right = right_wheel_vel * self.wheel_radius
         linear_velocity = (v_right + v_left) / 2.0
@@ -314,6 +315,7 @@ class OdometryPublisher(Node):
         odom_msg.child_frame_id = "base_link"
 
         # Add the updated robot's position and orientation to the Odometry message
+        # Be careful, the Odometry message accepts the orientation in Quaternion notation!
         odom_msg.pose.pose.position.x = self.x
         odom_msg.pose.pose.position.y = self.y
         odom_msg.pose.pose.position.z = 0.0
