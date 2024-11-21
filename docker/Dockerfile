@@ -38,6 +38,7 @@ RUN sudo apt-get update && \
     sudo apt-get install -y --no-install-recommends \
     ros-$ROS_DISTRO-navigation2 \
     ros-$ROS_DISTRO-turtle-nest \
+    ros-humble-tf-transformations \
     && sudo apt-get clean && \
     sudo rm -rf /var/lib/apt/lists/*
 
@@ -52,8 +53,19 @@ RUN cd ${ROS2_WS}/src && \
     sudo rm -rf /var/lib/apt/lists/* && \
     colcon build --symlink-install
 
+# Build exercises_ws
+RUN cd ${EXERCISES_WS}/src && \
+    sudo apt-get update && \
+    . /opt/ros/${ROS_DISTRO}/setup.bash && \
+    cd .. && \
+    rosdep update && rosdep install --from-paths src --ignore-src -r -y --rosdistro ${ROS_DISTRO} && \
+    sudo apt-get clean && \
+    sudo rm -rf /var/lib/apt/lists/* && \
+    colcon build --symlink-install
+
 # Source ROS workspace automatically when new terminal is opened
 RUN sudo echo ". /opt/ros/${ROS_DISTRO}/setup.bash" >> ~/.bashrc && \
+    sudo echo ". ${EXERCISES_WS}/install/setup.bash" >> ~/.bashrc && \
     sudo echo ". ${ROS2_WS}/install/setup.bash" >> ~/.bashrc
 
 WORKDIR /home/user/exercises_ws

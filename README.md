@@ -13,3 +13,4 @@ collaboration with [Henki Robotics](https://henkirobotics.com/).
 0. [Setup](0-setup)
 1. [ROS 2 Introduction](1-ros_2_introduction)
 2. [SLAM and Navigation Demo](2-slam_and_navigation_demo)
+3. [Create your first ROS 2 package](3-create_ros_2_package)
