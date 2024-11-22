@@ -2,18 +2,24 @@ services:
   robotics_essentials_ros2:
     image: robotics_essentials_ros2
     build:
-      context: .
+      context: ..
+      dockerfile: docker/Dockerfile
     container_name: robotics_essentials_ros2
     stop_signal: SIGINT
     network_mode: host
     privileged: true
     stdin_open: true
+    #runtime: nvidia
     tty: true
     user: user
     volumes:
       - $HOME/exercises_ws/src:/home/user/exercises_ws/src
       - /tmp/.X11-unix:/tmp/.X11-unix
     environment:
+      #- NVIDIA_VISIBLE_DEVICES=all # Makes all NVIDIA devices visible to the container
+      #- NVIDIA_DRIVER_CAPABILITIES=all # Grants all NVIDIA driver capabilities to the container
+      #- __NV_PRIME_RENDER_OFFLOAD=1 # Enables NVIDIA PRIME render offload
+      #- __GLX_VENDOR_LIBRARY_NAME=nvidia # Specifies the GLX vendor library to use (NVIDIA)
       - DISPLAY
       - QT_X11_NO_MITSHM=1
       - ROS_DOMAIN_ID=42

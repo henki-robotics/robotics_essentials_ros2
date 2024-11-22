@@ -1,0 +1,5 @@
+<library path="custom_nav2_planner_plugin">
+	<class name="custom_nav2_planner/CustomPlanner" type="custom_nav2_planner::CustomPlanner" base_class_type="nav2_core::GlobalPlanner">
+	  <description>This is an example custom planner plugin that calls a service to get a plan.</description>
+	</class>
+</library>
