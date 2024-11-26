@@ -72,21 +72,21 @@ void CustomPlanner::configure(
 void CustomPlanner::cleanup()
 {
   RCLCPP_INFO(
-    node_->get_logger(), "CleaningUp plugin %s of type NavfnPlanner",
+    node_->get_logger(), "CleaningUp plugin %s of type CustomPlanner",
     name_.c_str());
 }
 
 void CustomPlanner::activate()
 {
   RCLCPP_INFO(
-    node_->get_logger(), "Activating plugin %s of type NavfnPlanner",
+    node_->get_logger(), "Activating plugin %s of type CustomPlanner",
     name_.c_str());
 }
 
 void CustomPlanner::deactivate()
 {
   RCLCPP_INFO(
-    node_->get_logger(), "Deactivating plugin %s of type NavfnPlanner",
+    node_->get_logger(), "Deactivating plugin %s of type CustomPlanner",
     name_.c_str());
 }
 
@@ -99,14 +99,14 @@ nav_msgs::msg::Path CustomPlanner::createPlan(
   // Checking if the goal and start state is in the global frame
   if (start.header.frame_id != global_frame_) {
     RCLCPP_ERROR(
-      node_->get_logger(), "Planner will only except start position from %s frame",
+      node_->get_logger(), "Planner will only accept start position from %s frame",
       global_frame_.c_str());
     return global_path;
   }
 
   if (goal.header.frame_id != global_frame_) {
     RCLCPP_INFO(
-      node_->get_logger(), "Planner will only except goal position from %s frame",
+      node_->get_logger(), "Planner will only accept goal position from %s frame",
       global_frame_.c_str());
     return global_path;
   }

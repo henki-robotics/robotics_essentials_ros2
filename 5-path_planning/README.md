@@ -1,14 +1,14 @@
 # Exercise 5 - Path Planning
 
-Path planning in robotics is about finding the best route for a robot to move from a start point to a goal, avoiding obstacles along the way.
-In ROS 2, this is typically achieved using the Nav2 stack, which combines sensor data, maps, and algorithms to calculate and execute paths dynamically.
+Path planning is a common problem in robotics that focuses on finding the best route for a robot to move from a start point to a goal, avoiding obstacles along the way.
+In ROS 2, this is typically achieved using the `Nav2` stack, which combines sensor data, maps, and algorithms to calculate and execute paths dynamically.
 Path planning is a core concept for autonomous navigation, enabling robots to operate in complex environments.
 
 In this exercise, you will get an overview of what path planning is and how it is implemented in ROS 2.
-You will implement a "Hello World" of the path planning, by creating the simplest form of planner: **Straight Line Planner**.
+You will implement a "Hello World" of the path planning, by creating the simplest form of planner: the **Straight Line Planner**.
 
-Straight Line Planner will plan the path between two points, without considering any obstacles on the way.
-This will give you an understanding of how new path planning algorithm can be implemented using ROS 2,
+The **Straight Line Planner** will plan the path between two points, without considering any obstacles on the way.
+This will give you an understanding of how new path planning algorithms can be implemented using ROS 2,
 enabling you to take things further on your own.
 
 <!-- TOC -->
@@ -51,7 +51,7 @@ The local costmap focuses on the area immediately surrounding the robot. It dyna
 <img src="images/global_plan.png" alt="Global plan" width="400">
 
 The path planner computes a path from the robot’s start point to its goal while considering the global costmap. In this exercise, you'll implement a basic straight-line planner to understand the fundamentals of path planning algorithms.
-The produced path is often referred as "Global Plan".
+The produced path is often referred to as the "Global Plan".
 
 **Controller**
 
@@ -63,6 +63,7 @@ The controller translates the planned path into low-level motion commands, such 
 
 Behavior trees define how the robot should react in different situations by structuring its actions and decisions hierarchically. They enable complex behaviors like re-planning when obstacles block the path.
 
+<img src="images/bt.png" alt="Behavior Tree" width="400">
 
 
 ## Disclaimer on Docker
@@ -72,6 +73,12 @@ From now on in the instructions, we won't necessarily separately specify to run 
 All the commands are expected to be run inside the Docker, unless otherwise specified.
 
 You can revise these commands from the [Docker Cheatsheet](/0-setup/Docker%20Cheat%20Sheet.md).
+
+
+## Disclaimer on ROS 2 workspaces
+Inside our `robotics_essentials_ros2` container we have two ROS workspaces. In the `exercises_ws` we are adding our 
+custom packages and code. In the `ros2_ws` we are keeping all of our external dependencies, like the `andino_gz` package.
+
 
 ## Nav2 on Andino
 
@@ -84,10 +91,10 @@ Two main steps are needed to do this:
 Let's take a quick look on how these look like on Andino.
 
 
-1. You can view the launch file with:
+1. You can view the content of the launch file in the terminal with:
 
     ```
-    ls $HOME/ros2_ws/src/andino_gz/andino_gz/launch/andino_gz.launch.py
+    cat $HOME/ros2_ws/src/andino_gz/andino_gz/launch/andino_gz.launch.py
     ```
     <aside>
     
@@ -96,14 +103,16 @@ Let's take a quick look on how these look like on Andino.
     
     </aside>
    
-    Another way is to check the source code directly in the [Andino GitHub repository](https://github.com/Ekumen-OS/andino_gz/blob/humble/andino_gz/launch/andino_gz.launch.py)
+    Another way is to check the source code directly in the [Andino GitHub repository](https://github.com/Ekumen-OS/andino_gz/blob/humble/andino_gz/launch/andino_gz.launch.py). You can either check the 
+code straight in your browser, or clone the package and open it in your favourite IDE.
     
     <img src="images/nav2_bringup.png" alt="Andino nav2 bringup" width="800">
     
     This part invokes a Nav2 launch file called [bringup_launch.py](https://github.com/ros-navigation/navigation2/blob/main/nav2_bringup/launch/bringup_launch.py), that further
     starts all the nodes needed for navigation; planner, controller, behavior trees, etc.
     <br><br>
-1. The second part of the Nav2 setup is the parameter file. You can view it with:
+
+2. The second part of the Nav2 setup is the parameter file. You can view it in your terminal with:
     
     ```
    cat $HOME/ros2_ws/src/andino_gz/andino_gz/config/nav2_params.yaml
@@ -125,7 +134,7 @@ This approach allows us to implement our path planner in Python by simply creati
 - Gets a robot's starting pose and goal pose in a service request
 - Responds with a plan
 
-We also have access to global costmap, which normally would be used for path planning to plan around the obstacles,
+We also have access to the global costmap, which normally would be used for path planning to plan around the obstacles,
 but for simplicity we omit using it, and instead create a plan just between two points.
 
 With all this information available, we are ready to start calculating new paths for our robot.
@@ -134,7 +143,8 @@ If you are interested to check the original implementation of the Straight Line 
 
 ### Change the Planner
 
-Let's get started by manually changing the planner for Andino in Nav2 parameter file.
+Let's get started by manually changing the planner for Andino in the Nav2 parameter file that is found inside the 
+`andino_gz` package.
 
 
 1. Open Andino's parameter file with your favorite text editor.
@@ -171,7 +181,7 @@ Let's get started by manually changing the planner for Andino in Nav2 parameter 
 
 <aside>
 
-> Note! If you rebuild or remove your Docker container, these changes won't persist.
+> Note for Docker users! If you rebuild or remove your Docker container, these changes won't persist.
 > In this case, you will have to run these steps to change the planner again!
 
 </aside>
@@ -188,7 +198,7 @@ Next, we can verify that our planner has been indeed changed.
 
 1. Start the simulation, give a pose estimate for the robot, and try to give a Nav2 goal to autonomously navigate
     <br><br>
-    You should see that your robot does not plan any path, since nothing yet is implemented.
+    You should see that your robot does not plan any path, since our custom **Straight Line Planner** is not yet implemented.
     <br><br>
 
     <img src="images/no_plan.png" alt="Andino no plan" width="500">
@@ -212,9 +222,9 @@ Why is that?
   During recovery behaviors, the robot will for example try to spin and back up a little, to try to get unstuck.
 </details>
 
-### Create New Python Package
+### Creating a new Python ROS 2 Package
 
-To create our code for the path planner, let's first create a new ROS 2 package.
+To add our custom code for the new path planner, let's first create a new Python ROS 2 package.
 You can stop your simulation launch with CTRL+C and follow these steps.
 
 1. Run Turtle Nest:
@@ -247,7 +257,7 @@ You can stop your simulation launch with CTRL+C and follow these steps.
     <img src="images/hello_world.png" alt="Hello world" width="700">
 
 
-### Implement Straight Line Planner Node
+### Implementing the **Straight Line Planner** Node
 
 Now, it is time to start implementing the actual code for the planner.
 
@@ -295,7 +305,7 @@ You will find it on your host machine, outside the container in
     def create_straight_plan(start, goal, time_now):
         """ 
         Creates a straight plan between start and goal points.
-        Does not use global costmap to plan around obstacles, as normal planners would.
+        Does not use the global costmap to plan around obstacles, as normal planners would.
         """
         path = Path()
     
@@ -322,6 +332,7 @@ You will find it on your host machine, outside the container in
     def interpolate_coordinates(start, end, increment=0.1):
         """
         Interpolate coordinates between two points with a fixed increment.
+        This method calculates the coordinates of the points on the straight-line path that we are computing.
     
         Args:
             start (tuple): Starting coordinate (x1, y1).
@@ -379,7 +390,7 @@ You will find it on your host machine, outside the container in
     Without any changes, it returns an empty path.
 
     - **interpolate_coordinates:** This function calculates intermediate points on a line between start and goal positions,
-    with a 0.1 interval by default.
+    with a 0.1 meters interval by default.
     You do not need to fully understand the contents of this function, only the way how it can be used.
 1. Run the simulation in one terminal, and the new PathPlannerNode in another one with the following commands:
     ```
@@ -443,7 +454,7 @@ class PathPlannerNode(Node):
 def create_straight_plan(start, goal, time_now):
     """ 
     Creates a straight plan between start and goal points.
-    Does not use global costmap to plan around obstacles, as normal planners would.
+    Does not use the global costmap to plan around obstacles, as normal planners would.
     """
     path = Path()
 
@@ -483,7 +494,8 @@ def create_straight_plan(start, goal, time_now):
 def interpolate_coordinates(start, end, increment=0.1):
     """
     Interpolate coordinates between two points with a fixed increment.
-
+    This method calculates the coordinates of the points on the straight-line path that we are computing.
+    
     Args:
         start (tuple): Starting coordinate (x1, y1).
         end (tuple): Ending coordinate (x2, y2).

@@ -83,7 +83,7 @@ public:
   // plugin deactivate
   void deactivate() override;
 
-  // This method creates path for given start and goal pose.
+  // This method creates a new path for a given start and goal pose
   nav_msgs::msg::Path createPlan(
     const geometry_msgs::msg::PoseStamped & start,
     const geometry_msgs::msg::PoseStamped & goal) override;
