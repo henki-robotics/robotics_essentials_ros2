@@ -23,7 +23,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 SHELL ["/bin/bash", "-c"]
 
 # Copy andino requirement files and install dependencies
-COPY ./andino_requirements.txt .
+COPY docker/andino_requirements.txt .
 RUN sudo apt-get update && sudo apt-get install --no-install-recommends -y $(cat andino_requirements.txt)
 RUN sudo rm andino_requirements.txt
 
@@ -42,7 +42,8 @@ RUN sudo apt-get update && \
     && sudo apt-get clean && \
     sudo rm -rf /var/lib/apt/lists/*
 
-# Install andino_gz and its dependencies
+# Install andino_gz and other packages with their dependencies
+COPY ./packages/ ${ROS2_WS}/src
 RUN cd ${ROS2_WS}/src && \
     git clone https://github.com/Ekumen-OS/andino_gz.git -b 0.1.1 && \
     sudo apt-get update && \
@@ -71,7 +72,7 @@ RUN sudo echo ". /opt/ros/${ROS_DISTRO}/setup.bash" >> ~/.bashrc && \
 WORKDIR /home/user/exercises_ws
 
 # Source ROS in the main terminal
-COPY ./ros_entrypoint.sh /ros_entrypoint.sh
+COPY docker/ros_entrypoint.sh /ros_entrypoint.sh
 
 # Source ROS in the main terminal
 ENTRYPOINT ["/ros_entrypoint.sh"]
