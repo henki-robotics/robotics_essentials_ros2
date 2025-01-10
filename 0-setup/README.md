@@ -129,10 +129,10 @@ xhost +
     docker exec -it robotics_essentials_ros2 bash
     ```
 
-The `docker compose up` command launched the `robotics_essentials_ros2` Docker container, which essentially acts as a virtual environment.
-It is a completely isolated software package that includes all the dependencies you need, including even its own operating system.
+The `docker compose up` command launches the `robotics_essentials_ros2` Docker container, which essentially acts as a virtual environment.
+It is a completely isolated environment, that includes all the software dependencies you need, including even the Ubuntu operating system.
 
-The `docker exec` command on the other hand open a new terminal inside this Docker container, allowing you to interact with it.
+The `docker exec` command on the other hand opens a new terminal inside this Docker container, allowing you to interact with it.
 
 Refer to this section whenever you need to relaunch your Docker container, or start a new terminal during the upcoming exercises.
 
