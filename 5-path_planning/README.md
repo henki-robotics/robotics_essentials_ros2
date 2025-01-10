@@ -552,9 +552,14 @@ If you wish, you can try to improve the path planning by also using the global c
 to plan around obstacles in the environment. You can for example implement some of the popular
 path planning algorithms, such as **Dijkstra** or **A***. Good luck!
 
+> **Note:** Make sure that your path planning algorithm is fast and efficient. 
+> Otherwise the path planning might time out, if the path calculation takes for too long.
+
 ## Summary
 
 By the end of these exercises, you have now learned:
 - The basic navigation concepts
 - How to modify Nav2 parameters
 - How path planners work and are created in ROS 2
+
+Congratulations! You've finished all the available exercises! 🎉

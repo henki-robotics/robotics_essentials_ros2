@@ -389,3 +389,5 @@ By the end of these exercises, you have now learned
 - What robot odometry is
 - How to calculate robot's odometry data from wheel velocities
 - How to use ROS 2 to subscribe and publish data in Python code
+
+Next exercises: [Exercises 5: Path Planning](/5-path_planning/README.md)
