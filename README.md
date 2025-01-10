@@ -67,5 +67,5 @@ These slides accompany the practical exercises included in this repo, and are me
 Did you encounter a problem during your exercises, or did you find a mistake?
 Report issues in the "Issues" section in GitHub, and we will help you.
 
-If you've found a fix to an existing issue, you can open a new Pull requests to fix it and to contribute to this course.
+If you've found a fix to an existing issue, you can open a new Pull Request to fix it and contribute to this course.
 We highly appreciate all the contributions!
