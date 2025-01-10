@@ -39,7 +39,7 @@ This repository contains a set of exercises to learn the concepts through practi
     - Navigate autonomously using Nav2
     - ROS 2 services
 3. [Create your first ROS 2 package](3-create_ros_2_package)
-    - ROS 2 packages, how to create your own
+    - ROS 2 packages - how to create your own package
     - Building and sourcing
     - ROS 2 Nodes
 4. [Robot Odometry](4-robot_odometry)
