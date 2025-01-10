@@ -150,6 +150,6 @@ Refer to this section whenever you need to relaunch your Docker container, or st
    <img src="/images/andino_sim_screenshot.png" alt="Andino Simulation Screenshot">
 
 
-You've now successfully installed everything you need for these exercises!
+You've now successfully installed everything you need for the upcoming exercises!
 
 Next exercises: [Exercises 1: ROS 2 Introduction](/1-ros_2_introduction/README.md).
