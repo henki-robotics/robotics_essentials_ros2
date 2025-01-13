@@ -1,4 +1,4 @@
-<img src="images/course_banner.png" alt="Robotics & ROS 2 Essentials" width="600"/>
+<img src="images/course_banner.png" alt="Robotics & ROS 2 Essentials"/>
 
 # Robotics & ROS 2 Essentials
 
