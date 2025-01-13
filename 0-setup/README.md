@@ -2,12 +2,12 @@
 
 ## Prerequisites
 - Ubuntu
-- [Docker and `docker compose`](https://docs.docker.com/engine/install/ubuntu/). Follow the link for the official tutorial
-and the latest installation instructions. Optionally, you can follow the commands below, but they might get out of date:
+- [Docker](https://docs.docker.com/engine/install/ubuntu/). Follow the link for the official tutorial
+and the latest installation instructions. Optionally, you can follow the commands below, but they might get out of date.
 - Git (`sudo apt install git`)
 
 <details>
-  <summary>Installing Docker and "docker compose"</summary>
+  <summary>Docker installation instructions</summary>
 
   ### Installing Docker
   ### Firstly follow these steps:
@@ -52,14 +52,6 @@ newgrp docker
 4. Test that you can run `docker` commands without `sudo`.
 ```
 docker run hello-world
-```
-
-### Install `docker-compose`
-Run these commands in a new terminal. `docker-compose` will help us run Docker images in an easier way, and it also 
-allows running multiple images at the same time.
-```
-sudo apt-get update
-sudo apt-get install docker-compose-plugin
 ```
 
 ### (Optional) If you are running Docker on a Linux machine equipped with an Nvidia GPU and the proper installed drivers
@@ -115,11 +107,13 @@ ROS 2 or Gazebo simulation installations are required!
 
 ## Launching the Docker container
 
-Before anything run this in a new terminal. This will give display permissions to your containers:
+Before anything run the following command in a new terminal. This will give display permissions to your containers:
 
 ```commandline
 xhost +
 ```
+
+> **Note:** This has to be run everytime you restart your computer 
 
 1. Use docker compose to build and run the Docker container, which includes the ROS 2, Gazebo and simulated Andino installation.
     ```commandline
@@ -135,6 +129,13 @@ xhost +
     docker exec -it robotics_essentials_ros2 bash
     ```
 
+The `docker compose up` command launches the `robotics_essentials_ros2` Docker container, which essentially acts as a virtual environment.
+It is a completely isolated environment, that includes all the software dependencies you need, including even the Ubuntu operating system.
+
+The `docker exec` command on the other hand opens a new terminal inside this Docker container, allowing you to interact with it.
+
+Refer to this section whenever you need to relaunch your Docker container, or start a new terminal during the upcoming exercises.
+
 ## Run the simulation
 
 1. Verify that everything is running correctly, by starting the simulation with:
@@ -142,8 +143,13 @@ xhost +
     ros2 launch andino_gz andino_gz.launch.py
     ```
 
-    **Note:** Gazebo might take a long while to open up.
+   > **Note:** Gazebo might take a long while to open up.
 
 1. Press the play button in simulation to start it.
 
-<img src="/images/andino_sim_screenshot.png" alt="Andino Simulation Screenshot">
+   <img src="/images/andino_sim_screenshot.png" alt="Andino Simulation Screenshot">
+
+
+You've now successfully installed everything you need for the upcoming exercises!
+
+Next exercises: [Exercises 1: ROS 2 Introduction](/1-ros_2_introduction/README.md).

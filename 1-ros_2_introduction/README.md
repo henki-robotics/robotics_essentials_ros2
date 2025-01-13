@@ -104,8 +104,6 @@ Open a new terminal inside the Docker container and run the following commands (
     ```
    <img src="images/ros2_topic_info.png" alt="ROS 2 topic info" width="600">
 
-We see that there is one publisher for the `/scan` topic, which is the driver node of the simulated lidar on Andino. What node is then subscribing to this topic?
-
 ### Publish to a topic
 1. Move the robot by publishing to cmd_vel topic
 
@@ -235,9 +233,8 @@ Move the robot around with teleoperation using Gazebo. You can see that the robo
 Sometimes it might be useful to check the robot's tf-tree for debugging purposes. 
 You can do it by opening the "Tree" option under the TF menu.
 
-**Tip:** You might need to press reset-button on bottom left, for the odom-frame to be correctly on top of the tree. 
-This is needed because the `odom` frame is the one that tracks the movement of the robot in the environment, so it makes
-sense for it to be the main parent frame, so that we easily keep track of the movement of all the other frames as well.
+> **Tip:** To ensure the odom frame appears correctly at the top of the tree, you may need to press the reset button on the bottom left of Rviz. 
+> The odom frame tracks the robot's movement in the environment, making it the logical parent frame for accurately tracking the motion of all other frames.
 
 <img src="images/tf_tree.png" alt="ROS 2 tf tree" width="300">
 
@@ -251,3 +248,5 @@ By the end of these exercises, you have now learned
 - How to publish to a topic
 - How to subscribe to a topic
 - What tf-frames are
+
+Next exercises: [Exercises 2: SLAM and Navigation Demo](/2-slam_and_navigation_demo/README.md)

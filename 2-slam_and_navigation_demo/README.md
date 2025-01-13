@@ -120,7 +120,7 @@ include also their message types with:
 ros2 service list -t
 ```
 
-and call a service with:
+and call any service with the following template:
 
 ```commandline
 ros2 service call <service_topic> <message_type> <request>
@@ -132,3 +132,5 @@ By the end of these exercises, you have now learned
 - How to create a 2D map using slam-toolbox
 - How make the robot autonomously navigate using Nav2
 - What ROS 2 services are
+
+Next exercises: [Exercises 3: 3-create_ros_2_package](/3-create_ros_2_package/README.md)

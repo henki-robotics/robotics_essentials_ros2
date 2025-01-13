@@ -55,6 +55,10 @@ We use the `--symlink-install` to make our Python code symbolically linked, so t
 
 **NOTE**: You need to do this build and source step every time you relaunch your Docker container!
 
+After successfully building, you should see the following message. You can ignore the produced warning message.
+
+<img src="images/build_warning.png" alt="Build Message" width="600">
+
 ## What our new package includes?
 
 Let's check what our newly created package contains.
@@ -117,3 +121,5 @@ In this tutorial, you learned:
 - How ROS 2 Python Nodes look like.
 - What the `setup.py` and `package.xml` files are and how do they look like.
 - How to run your new ROS 2 Node.
+
+Next exercises: [Exercises 4: Robot Odometry](/4-robot_odometry/README.md)
