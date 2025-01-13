@@ -120,7 +120,7 @@ include also their message types with:
 ros2 service list -t
 ```
 
-and call any service with a following template:
+and call any service with the following template:
 
 ```commandline
 ros2 service call <service_topic> <message_type> <request>

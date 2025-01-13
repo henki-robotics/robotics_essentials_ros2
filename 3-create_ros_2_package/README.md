@@ -55,7 +55,7 @@ We use the `--symlink-install` to make our Python code symbolically linked, so t
 
 **NOTE**: You need to do this build and source step every time you relaunch your Docker container!
 
-After a successful building, you should see a following message. You can ignore the produced warning message.
+After successfully building, you should see the following message. You can ignore the produced warning message.
 
 <img src="images/build_warning.png" alt="Build Message" width="600">
 

@@ -15,15 +15,15 @@ This course is designed to give you hands-on experience with the basics of robot
 The exercises focus on the [Andino robot](https://github.com/Ekumen-OS/andino_gz/tree/humble) from Ekumen and are structured to gradually introduce you to ROS 2 and Docker.
 
 
-No prior experience in ROS 2 or Docker is needed, and since everything runs through Docker, you won’t need to install ROS 2 beforehand. 
-Along the way, you’ll learn important concepts like autonomous navigation and mapping for mobile robots.
-All coding exercises are done in Python.
+No prior experience with ROS 2 or Docker is needed, and since everything runs through Docker, you won’t need to install ROS 2 on your system beforehand. 
+Along the way, you’ll learn essential concepts like autonomous navigation and mapping for mobile robots.
+All the practical coding exercises are done in Python.
 
 <img src="images/autonomous_navigation.gif" alt="drawing" width="1200"/>
 
 ## Exercises
 
-This repository contains a set of exercises to learn the concepts through practical demos and coding exercises.
+This repository contains a set of exercises to learn the core concepts taught over the course through practical demos and coding exercises.
 
 0. [Setup](0-setup)
     - Setup the exercises
