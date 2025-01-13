@@ -1,4 +1,6 @@
-# Robotics Essentials ROS 2
+<img src="images/course_banner.png" alt="Robotics & ROS 2 Essentials" width="600"/>
+
+# Robotics & ROS 2 Essentials
 
 Welcome to an open-source repository that contains materials and exercises needed 
 to learn the essential robotics skills using ROS 2. 
