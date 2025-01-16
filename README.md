@@ -25,7 +25,8 @@ All the practical coding exercises are done in Python.
 
 ## Exercises
 
-This repository contains a set of exercises to learn the core concepts taught over the course through practical demos and coding exercises.
+This repository contains a set of exercises to learn the core concepts taught over the course through practical demos and coding exercises. 
+Start from the exercises "0 - Setup" and go them through one by one to learn the basics of robotics and ROS 2!
 
 0. [Setup](0-setup)
     - Setup the exercises
@@ -55,7 +56,7 @@ This repository contains a set of exercises to learn the core concepts taught ov
 
 ## Lecture slides
 
-These slides accompany the practical exercises included in this repo, and are meant to be covered at the same time.
+These slides accompany the practical exercises included in this repository and are meant to be covered at the same time.
 
 1. [Theme 1: Robotics in society](lecture_slides/theme_1_robotics_in_society)
 2. [Theme 2: Robotics applications](lecture_slides/theme_2_robotics_applications)
