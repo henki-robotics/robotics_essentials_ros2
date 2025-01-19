@@ -220,7 +220,7 @@ Move the robot around with teleoperation using Gazebo. You can see that the robo
     
     <img src="images/rviz_coordinate_frame.png" alt="RViz base_footprint frame" width="400">
 
-1. Change the "Fixed Frame" from "Global Options" to "odom" to use odometry as the coordinate frame instead of the robot base_footprint frame.
+1. Change the "Fixed Frame" under "Global Options" from "base_footprint" to "odom" to use odometry as the coordinate frame instead of the robot base_footprint frame.
 
     <img src="images/rviz_fixed_frame.png" alt="RViz Fixed Frame" width="400">
 
