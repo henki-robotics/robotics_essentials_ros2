@@ -2,6 +2,9 @@
 
 ## Prerequisites
 - Ubuntu
+- Intel or AMD Processor (with x64 processor architecture).
+This is the reason why the Docker container won't work directly for example on MAC, Raspberry or Jetson platforms.
+- A computer with sufficient processing power to run Gazebo simulation smoothly.
 - [Docker](https://docs.docker.com/engine/install/ubuntu/). Follow the link for the official tutorial
 and the latest installation instructions. Optionally, you can follow the commands below, but they might get out of date.
 - Git (`sudo apt install git`)
