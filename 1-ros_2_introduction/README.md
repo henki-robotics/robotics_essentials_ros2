@@ -70,7 +70,7 @@ Here is a quick summary of all the required steps for launching the simulation:
 ### Control the robot in Gazebo
 
 **Exercise 1:**
-Open the teleop panel and give commands to move the robot around. Try out all the teleoperation menus, and experiment with all the ways in which you can control Andino.
+Open the teleop panel and give commands to move the robot around. Try out all the teleoperation menus, and experiment with all the ways in which you can control Andino. On startup, the Gazebo simulation will most likely be paused. Make sure you firstly press the play button in the bottom left of the Gazebo UI to start the simulation and see the robot moving once you send teleoperation commands.
 <br> 
 
 <img src="images/gazebo_teleop.png" alt="Gazebo teleoperation" width="800">
