@@ -145,7 +145,17 @@ Refer to this section whenever you need to relaunch your Docker container, or st
     ros2 launch andino_gz andino_gz.launch.py
     ```
 
-   > **Note:** Gazebo might take a long while to open up.
+<details open>
+<summary>Note: If Gazebo doesn't open up in a few minutes, follow the instructions under this dropdown.</summary>
+
+On the first startup, Gazebo will download some assets, so make sure you have a good internet connection.
+You might get multiple `[ros_gz_sim]: Requesting list of world names` messages logged in the console.
+During this time, Gazebo might freeze, but pressing "Wait" repeatedly should eventually solve the issue.
+
+Some people have reported this issue being persistent. In this case, you can try to follow the proposed solution
+in the [Gazebo GitHub issue #38](https://github.com/gazebosim/gz-sim/issues/38), to disable the firewall for
+the duration of the installation using `sudo ufw disable` -command. This has previously helped to solve the issue.
+</details>
 
 1. Press the play button in simulation to start it.
 
