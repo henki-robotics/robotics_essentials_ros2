@@ -157,7 +157,7 @@ in the [Gazebo GitHub issue #38](https://github.com/gazebosim/gz-sim/issues/38),
 the duration of the installation using `sudo ufw disable` -command. This has previously helped to solve the issue.
 </details>
 
-1. Press the play button in simulation to start it.
+2. Press the play button in simulation to start it.
 
    <img src="/images/andino_sim_screenshot.png" alt="Andino Simulation Screenshot">
 
