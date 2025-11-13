@@ -1,8 +1,12 @@
 # Exercises 0 - Setup
 
 ## Prerequisites
-- Ubuntu
-- Intel or AMD processor (with x64 processor architecture). This is the reason why the Docker container won't work directly for example on Apple Silicon, Raspberry or Jetson platforms.
+- Ubuntu 22.04
+- Intel or AMD processor (with x64 processor architecture). This is the reason why the Docker container won't work 
+directly for example on Apple Silicon, Raspberry or Jetson platforms.
+  - For Apple Silicon users, we have added [this tutorial](apple_silicon_UTM_installation_steps.md) for installing 
+  Ubuntu 22.04 and all the course-related dependencies with UTM. We do not claim that it is perfect, but it is one 
+  option for Apple users.
 - A computer with sufficient processing power to run Gazebo simulation smoothly.
 - [Docker](https://docs.docker.com/engine/install/ubuntu/). Follow the link for the official tutorial
 and the latest installation instructions. Optionally, you can follow the commands below, but they might get out of date.
