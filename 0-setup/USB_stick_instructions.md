@@ -215,7 +215,8 @@ Gparted comes to the rescue once again. It is available for Linux, Windows and m
 
 ## Acknowledgements
 - [Abhishek Prakash](https://itsfoss.com/intsall-ubuntu-on-usb/)
-- [Md Sajib Pramanic](https://www.linkedin.com/in/md-sajib-pramanic/). [Github](https://github.com/SAJIB3489).
+- [Md Sajib Pramanic](https://www.linkedin.com/in/md-sajib-pramanic/). [Github](https://github.com/SAJIB3489). - for 
+putting together these instructions
 
 
 ---
