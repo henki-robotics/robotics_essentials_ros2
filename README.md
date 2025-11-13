@@ -72,3 +72,19 @@ Report issues in the "Issues" section in GitHub, and we will help you.
 
 If you've found a fix to an existing issue, you can open a new Pull Request to fix it and contribute to this course.
 We highly appreciate all the contributions!
+
+## Maintainers
+This course and repository is maintained by the main team members and co-founders of 
+[Henki Robotics Oy](https://henkirobotics.com/):
+- Janne Karttunen. [LinkedIn](https://www.linkedin.com/in/janne-karttunen-a22375209/). 
+[Github](https://github.com/Jannkar).
+- George-Cosmin Porusniuc. [LinkedIn](https://www.linkedin.com/in/george-cosmin-porusniuc-89019a168/).
+[Github](https://github.com/geoporus1).
+
+## Acknowledgements
+We want to thank the following individuals for helping us in developing part of the material for this course and for 
+providing support with teaching the in-person version of the course during the "Robotics & XR" Master's level course at
+the "University of Eastern Finland", in 2024 and 2025:
+- Prof. [Ilkka Jormanainen](https://www.linkedin.com/in/ilkka-jormanainen-5954441/)
+- [Md Sajib Pramanic](https://www.linkedin.com/in/md-sajib-pramanic/)
+- [Haris Mashood](https://www.linkedin.com/in/harismashood/)
