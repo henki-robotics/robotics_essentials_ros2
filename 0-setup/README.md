@@ -90,6 +90,9 @@ sudo systemctl restart docker
 
 </details>
 
+If one does not have Ubuntu natively installed on their machine, and they do not want to mess with a dual-boot or 
+virtualized installation of Ubuntu, we provide complete installation steps on how to create your own custom [live-Ubuntu 
+installation on an external USB stick](USB_stick_instructions.md).
 
 All the practical examples in this course are containerized with Docker, so no 
 ROS 2 or Gazebo simulation installations are required!
