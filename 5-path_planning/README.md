@@ -170,7 +170,7 @@ Let's get started by manually changing the planner for Andino in the Nav2 parame
 
     This replaces the originally used `NavfnPlanner` with our [CustomPlanner](/packages/custom_nav2_planner/src/custom_nav2_planner.cpp) implementation.
 
-1. Save the file by pressing CTRL-O and press ENTER.
+1. Save the file by pressing CTRL+O and press ENTER (or by just pressing CTRL+S).
 1. Exit with CTRL+X
 1. To apply the changes, finally build and source the `ros2_ws`:
    ```
