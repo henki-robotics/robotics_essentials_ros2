@@ -192,7 +192,7 @@ Restart or turn off the system now
 ## How to Use the USB Flash Drive
 
 Watch the full instruction video here:  
-[Video](images/Instruction%20to%20use%20FlashDrive%20Ubuntu.mp4)
+[Video](https://drive.google.com/file/d/1XkcdobvPeJxrihuGtHd9bvx3k-nEZ_Ao/view?usp=sharing)
 
 ---
 
