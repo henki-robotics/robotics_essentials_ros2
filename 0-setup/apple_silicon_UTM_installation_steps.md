@@ -68,4 +68,5 @@ will get quite HOT!
 
 ## Acknowledgements
 The instructions in this tutorial were put together by Prof. 
-[Ilkka Jormanainen](https://www.linkedin.com/in/ilkka-jormanainen-5954441/).
+[Ilkka Jormanainen](https://www.linkedin.com/in/ilkka-jormanainen-5954441/),  
+[Viktoriia Yarmolich](https://www.linkedin.com/in/viktoriia-yarmolich/).
