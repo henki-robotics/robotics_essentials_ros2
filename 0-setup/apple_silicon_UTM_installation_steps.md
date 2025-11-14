@@ -43,7 +43,30 @@ will get quite HOT!
   terminal shell that you open. Likewise, you can add the `source /opt/ros/humble/setup.bash` command to your 
   `~/.bashrc` so that you don't have to issue that command always when opening a new shell for ROS 2 use. Please, 
   see the official ROS 2 documentation for more information.
+- If you still run into Gazebo crashes, you can alternatively use VMWare Fusion for your virtual machine.
+
+## Running ROS2 using VMWare Fusion for Apple Silicon users
+1) Install the [VMWare Fusion software](https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion).  
+
+2) Install Ubuntu server using the same instructions as for UTM.  
+
+3) After installing Ubuntu-desktop, you need to disable 3D graphics acceleration before starting the system:  
+    - Go to Virtual Machine → Settings → Display  
+    - Uncheck “Accelerate 3D Graphics”  
+    - If you leave it enabled at this point, you will likely get a black screen.  
+
+4) Install the HWE kernel (this provides updated graphics stack support):  
+   `sudo apt update sudo apt install --install-recommends linux-generic-hwe-22.04`. Then reboot the system.  
+
+5) Now you can re-enable Accelerate 3D Graphics in the display settings, and the system should start working correctly.  
+
+6) If your OS performance is slow, you should switch to a lighter desktop environment: `sudo apt update && sudo apt install -y xfce4 xfce4-goodies`.  
+   Then, on the login screen, select XFCE.  
+
+7) Now you can repeat steps 4, 5, and 6 for the UTM set-up to install ROS2 and the required packages.  
+   Finally, before launching the environment don’t forget to run: `export LIBGL_ALWAYS_SOFTWARE=1`.  
 
 ## Acknowledgements
 The instructions in this tutorial were put together by Prof. 
-[Ilkka Jormanainen](https://www.linkedin.com/in/ilkka-jormanainen-5954441/).
+[Ilkka Jormanainen](https://www.linkedin.com/in/ilkka-jormanainen-5954441/),  
+[Viktoriia Yarmolich](https://www.linkedin.com/in/viktoriia-yarmolich/).
