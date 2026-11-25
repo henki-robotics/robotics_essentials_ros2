@@ -88,3 +88,4 @@ the "University of Eastern Finland", in 2024 and 2025:
 - Prof. [Ilkka Jormanainen](https://www.linkedin.com/in/ilkka-jormanainen-5954441/)
 - [Md Sajib Pramanic](https://www.linkedin.com/in/md-sajib-pramanic/)
 - [Haris Mashood](https://www.linkedin.com/in/harismashood/)
+- [Ömer Kocaman](https://www.linkedin.com/in/omer-kocaman-auceng/) — Ubuntu 24.04 / ROS 2 Jazzy & Gazebo Harmonic migration (Long live Gemini)
