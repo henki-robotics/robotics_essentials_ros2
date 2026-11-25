@@ -1,0 +1,93 @@
+diff --git a/andino_gz/launch/andino_gz.launch.py b/andino_gz/launch/andino_gz.launch.py
+index d878ae1..02035a3 100644
+--- a/andino_gz/launch/andino_gz.launch.py
++++ b/andino_gz/launch/andino_gz.launch.py
+@@ -16,7 +16,8 @@ from andino_gz.launch_tools.substitutions import TextJoin
+ 
+ def generate_launch_description():
+     pkg_andino_gz = get_package_share_directory('andino_gz')
+-    pkg_nav2_bringup = get_package_share_directory('nav2_bringup')
++    # Use andino_navigation package for Jazzy bringup and parameters
++    pkg_andino_navigation = get_package_share_directory('andino_navigation')
+ 
+     ros_bridge_arg = DeclareLaunchArgument(
+         'ros_bridge', default_value='True', description='Run ROS bridge node.')
+@@ -38,7 +39,7 @@ def generate_launch_description():
+     )
+     params_file_arg = DeclareLaunchArgument(
+         'params_file',
+-        default_value=PathJoinSubstitution([pkg_andino_gz, 'config', 'nav2_params.yaml']),
++        default_value=PathJoinSubstitution([pkg_andino_navigation, 'params', 'nav2_params_jazzy.yaml']),
+         description='Nav2 configuration. Full path to the ROS2 parameters file to use for all launched nodes')
+ 
+     # Variables of launch file.
+@@ -190,7 +191,7 @@ def generate_launch_description():
+               # Nav2 Bringup for multiple robots
+               IncludeLaunchDescription(
+                   PythonLaunchDescriptionSource(
+-                      os.path.join(pkg_nav2_bringup, 'launch', 'bringup_launch.py')
++                      os.path.join(pkg_andino_navigation, 'launch', 'bringup.launch.py')
+                   ),
+                   launch_arguments={
+                     'namespace': robot_name,
+@@ -199,6 +200,7 @@ def generate_launch_description():
+                     'autostart': 'True',
+                     'use_sim_time': 'True',
+                     'params_file': LaunchConfiguration('params_file'),
++                    'rviz': 'False',
+                   }.items(),
+                   condition=IfCondition(PythonExpression([more_than_one_robot, ' and ', LaunchConfiguration('nav2')])),
+               ),
+@@ -207,13 +209,14 @@ def generate_launch_description():
+               # Nav2 Bringup for single robot
+               IncludeLaunchDescription(
+                   PythonLaunchDescriptionSource(
+-                      os.path.join(pkg_nav2_bringup, 'launch', 'bringup_launch.py')
++                      os.path.join(pkg_andino_navigation, 'launch', 'bringup.launch.py')
+                   ),
+                   launch_arguments={
+                     'map': LaunchConfiguration('map'),
+                     'autostart': 'True',
+                     'use_sim_time': 'True',
+                     'params_file': LaunchConfiguration('params_file'),
++                    'rviz': 'False',
+                   }.items(),
+                   condition=IfCondition(PythonExpression([one_robot, ' and ', LaunchConfiguration('nav2')])),
+               ),
+diff --git a/andino_gz/launch/include/spawn_robot.launch.py b/andino_gz/launch/include/spawn_robot.launch.py
+index 01b7829..ca81ae5 100644
+--- a/andino_gz/launch/include/spawn_robot.launch.py
++++ b/andino_gz/launch/include/spawn_robot.launch.py
+@@ -31,7 +31,7 @@ def get_robot_description() -> str:
+     """
+     # Parse robot description from xacro
+     robot_description_file_path = os.path.join(PKG_ANDINO_GZ, 'urdf', 'andino_gz.urdf.xacro')
+-    mappings = {'use_fixed_caster': 'false'}
++    mappings = {'use_fixed_caster': 'true'}
+     robot_description_config = process_file(robot_description_file_path, mappings=mappings)
+     robot_desc = robot_description_config.toprettyxml(indent='  ')
+     # Passing absolute path to the robot description due to Gazebo issues finding andino_description pkg path.
+diff --git a/andino_gz/urdf/andino_gz.urdf.xacro b/andino_gz/urdf/andino_gz.urdf.xacro
+index edd01ca..70efe8c 100644
+--- a/andino_gz/urdf/andino_gz.urdf.xacro
++++ b/andino_gz/urdf/andino_gz.urdf.xacro
+@@ -104,4 +104,19 @@
+ 
+   <xacro:include filename="$(find andino_gz)/urdf/include/andino_materials.xacro"/>
+ 
++  <gazebo reference="caster_link">
++    <mu1>0.001</mu1>
++    <mu2>0.001</mu2>
++  </gazebo>
++
++  <gazebo reference="left_wheel">
++    <mu1>1.0</mu1>
++    <mu2>1.0</mu2>
++  </gazebo>
++
++  <gazebo reference="right_wheel">
++    <mu1>1.0</mu1>
++    <mu2>1.0</mu2>
++  </gazebo>
++
+ </robot>

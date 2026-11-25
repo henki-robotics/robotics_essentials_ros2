@@ -22,5 +22,6 @@ services:
       #- __GLX_VENDOR_LIBRARY_NAME=nvidia # Specifies the GLX vendor library to use (NVIDIA)
       - DISPLAY
       - QT_X11_NO_MITSHM=1
+      - QT_QPA_PLATFORM=xcb
       - ROS_DOMAIN_ID=42
     command: bash

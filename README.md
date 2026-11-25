@@ -14,7 +14,7 @@ This material is implemented for the 2024 iteration of the Master's level "Robot
 ## Course overview
 
 This course is designed to give you hands-on experience with the basics of robotics using ROS 2 and Gazebo simulation. 
-The exercises focus on the [Andino robot](https://github.com/Ekumen-OS/andino_gz/tree/humble) from Ekumen and are structured to gradually introduce you to ROS 2 and Docker.
+The exercises focus on the [Andino robot](https://github.com/Ekumen-OS/andino_gz/tree/jazzy) from Ekumen and are structured to gradually introduce you to ROS 2 and Docker.
 
 
 No prior experience with ROS 2 or Docker is needed, and since everything runs through Docker, you won’t need to install ROS 2 on your system beforehand. 
@@ -88,3 +88,4 @@ the "University of Eastern Finland", in 2024 and 2025:
 - Prof. [Ilkka Jormanainen](https://www.linkedin.com/in/ilkka-jormanainen-5954441/)
 - [Md Sajib Pramanic](https://www.linkedin.com/in/md-sajib-pramanic/)
 - [Haris Mashood](https://www.linkedin.com/in/harismashood/)
+- [Ömer Kocaman](https://www.linkedin.com/in/omer-kocaman-auceng/) — Ubuntu 24.04 / ROS 2 Jazzy & Gazebo Harmonic migration (Long live Gemini)

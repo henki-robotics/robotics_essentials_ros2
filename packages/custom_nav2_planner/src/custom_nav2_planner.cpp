@@ -92,7 +92,8 @@ void CustomPlanner::deactivate()
 
 nav_msgs::msg::Path CustomPlanner::createPlan(
   const geometry_msgs::msg::PoseStamped & start,
-  const geometry_msgs::msg::PoseStamped & goal)
+  const geometry_msgs::msg::PoseStamped & goal,
+  std::function<bool()> /*cancel_checker*/)
 {
   nav_msgs::msg::Path global_path;
 

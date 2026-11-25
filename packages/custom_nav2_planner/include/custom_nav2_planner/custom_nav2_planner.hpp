@@ -86,7 +86,8 @@ public:
   // This method creates a new path for a given start and goal pose
   nav_msgs::msg::Path createPlan(
     const geometry_msgs::msg::PoseStamped & start,
-    const geometry_msgs::msg::PoseStamped & goal) override;
+    const geometry_msgs::msg::PoseStamped & goal,
+    std::function<bool()> cancel_checker) override;
 
 private:
   // TF buffer
