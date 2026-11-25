@@ -5,7 +5,7 @@ functionalities, and make them to be easily installable and shareable.
 
 You can follow this tutorial to easily create a new package using the 
 [Turtle Nest](https://github.com/Jannkar/turtle_nest) GUI tool, or learn how to create packages manually from the command line by following 
-[the official ROS 2 documentation](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html).
+[the official ROS 2 documentation](https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package.html).
 
 ## Create a new package
 1. Launch the Docker container and open a new terminal inside it ([How to run Docker container](/0-setup/Docker%20Cheat%20Sheet.md))

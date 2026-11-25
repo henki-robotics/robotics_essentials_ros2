@@ -103,7 +103,7 @@ Let's take a quick look on how these look like on Andino.
     
     </aside>
    
-    Another way is to check the source code directly in the [Andino GitHub repository](https://github.com/Ekumen-OS/andino_gz/blob/humble/andino_gz/launch/andino_gz.launch.py). You can either check the 
+    Another way is to check the source code directly in the [Andino GitHub repository](https://github.com/Ekumen-OS/andino_gz/blob/jazzy/andino_gz/launch/andino_gz.launch.py). You can either check the 
 code straight in your browser, or clone the package and open it in your favourite IDE.
     
     <img src="images/nav2_bringup.png" alt="Andino nav2 bringup" width="800">
@@ -115,7 +115,7 @@ code straight in your browser, or clone the package and open it in your favourit
 2. The second part of the Nav2 setup is the parameter file. You can view it in your terminal with:
     
     ```
-   cat $HOME/ros2_ws/src/andino_gz/andino_gz/config/nav2_params.yaml
+   cat $HOME/ros2_ws/src/andino/andino_navigation/params/nav2_params_jazzy.yaml
     ```
 
     This file includes all the parameters that we pass for Nav2 nodes, for example for amcl, controller_server and planner_server.
@@ -143,15 +143,14 @@ If you are interested to check the original implementation of the Straight Line 
 
 ### Change the Planner
 
-Let's get started by manually changing the planner for Andino in the Nav2 parameter file that is found inside the 
-`andino_gz` package.
+Let's get started by manually changing the planner for Andino in the Jazzy Nav2 parameter file inside the `andino_navigation` package.
 
 
 1. Open Andino's parameter file with your favorite text editor.
     We will use `nano` as an example:
 
     ```
-    nano $HOME/ros2_ws/src/andino_gz/andino_gz/config/nav2_params.yaml
+    nano $HOME/ros2_ws/src/andino/andino_navigation/params/nav2_params_jazzy.yaml
     ```
 
 1. Find the place where `planner_server` parameters are set.
@@ -159,8 +158,10 @@ Let's get started by manually changing the planner for Andino in the Nav2 parame
     ```
    planner_server:
      ros__parameters:
-       plugins: ["GridBased"]
+       expected_planner_frequency: 10.0
        use_sim_time: True
+       costmap_update_timeout: 1.0
+       planner_plugins: ["GridBased"]
        GridBased:
          plugin: "custom_nav2_planner/CustomPlanner"
     ```
@@ -175,7 +176,7 @@ Let's get started by manually changing the planner for Andino in the Nav2 parame
 1. To apply the changes, finally build and source the `ros2_ws`:
    ```
    cd $HOME/ros2_ws/
-   colcon build
+   colcon build --symlink-install
    source install/setup.bash
    ```
 
